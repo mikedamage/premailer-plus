@@ -1,0 +1,90 @@
+/*
+	Premailer (http://code.dunae.ca/premailer.web/) test stylesheet
+*/
+
+body, #container {
+	color: #fff;
+	background: #1c2815 none;
+}
+
+#container {
+	margin: 0;
+	width: 100%;
+	font-size: 12px;
+}
+
+#frame {
+	margin: 0 auto;
+	width: 740px;
+}
+
+td {
+	font-family: Georgia, Times, serif;
+	line-height: 18px;
+}
+
+#head td {
+	text-align: center;
+	font-size: 11px;
+}
+
+
+#head td, #head a,
+#legal td, #legal a{
+	color: #fff; 
+	background: #1c2815 none;
+}
+
+#head a, #legal a { text-decoration: underline; }
+
+#content h1 {
+	font-style: italic;
+	font-size: 24px;
+}
+
+#content td {
+	padding: 18px 0;
+	color: #666;
+	background: #deddc9 url("images/content_bg.jpg") repeat-y center top;
+	border-color: #fff;
+	border-style: solid;
+	border-width: 10px;
+}
+
+.feature {
+	border: 3px solid #fff;
+}
+
+img.right {
+	margin: 0 36px 27px;
+	float: right;
+}
+
+
+#content a {
+	color: #900;
+	background-color: transparent;
+	font-weight: bold;
+}
+
+#content h1,
+#content td h2,
+#content td p {
+	padding: 0 36px 9px;
+}
+
+ul.spacious li {
+	margin: 18px;
+}
+
+.intro {
+	font-size: 18px;
+}
+
+#legal td { padding-top: 27px; }
+
+#legal p { margin: 0 36px; font-size: 11px; }
+
+#legal a { text-decoration: underline; }
+
+#legal .right { text-align: right; }

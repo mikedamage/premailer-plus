@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-ca" lang="en-ca" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Premailer Test Page</title>
+	<link href="http://www.purl.org/dc/elements/1.1/" rel="schema.dc" />
+	<meta name="dc.creator" content="Alex Dunae - dunae.ca" />
+	<meta name="description" content="Premailer (http://code.dunae.ca/premailer.web/) test page" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-type" />
+	
+	
+
+<style type="text/css">
+@import "test3-import.css" screen;
+@import "test3-noimport.css" print;
+#container { font-size: 12px !important; margin: 0 !important; font: 300 normal 13px "Georgia", Times, serif !important; width: 100% !important; }
+@import "test3-noimport.css" print;
+#legal td { padding-top: 27px !important; }
+a:hover { color: #fff !important; }
+</style>
+</head>
+<body>
+<div id="container">
+	<table cellspacing="0" id="frame" cellpadding="10" style="margin: 0 auto; width: 740px;" width="740"><tr><td style="line-height: 18px; font-family: Georgia, Times, serif;">
+		<table cellspacing="0" id="head" cellpadding="0" width="720">
+			<tr>
+				<td style="font-size: 11px; background: #1c2815 none; line-height: 18px; font-family: Georgia, Times, serif; color: #fff; text-align: center;">
+					<p>Having trouble reading this email? You can <a href="#" style="background: #1c2815 none; text-decoration: underline; color: #f00;">read it on our web site</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<table cellspacing="0" id="content" width="720">
+			<tr valign="top">
+				<td style="border-color: #fff; background: #deddc9 url('images/content_bg.jpg') repeat-y center top; line-height: 18px; border-style: solid; border-width: 10px; padding: 18px 0; font-family: Georgia, Times, serif; color: #666;">
+		<!-- MAIN CONTENT BEGINS -->
+
+					<h1 style="font-size: 24px; padding: 0 36px 9px; font-style: italic;">Premailer Test Page</h1>
+
+					<img class="feature right" src="images/inset.jpg" alt="Inset image" style="margin: 0 36px 27px; border: 3px solid #fff; float: right;" />
+
+					<p class="intro" style="font-size: 18px; padding: 0 36px 9px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+
+					<p style="padding: 0 36px 9px;">Sed quis justo ut velit mattis adipiscing. Sed in mauris et libero dapibus varius. Quisque quis neque sed neque tincidunt scelerisque. Praesent vitae velit sit amet libero pharetra rhoncus. Phasellus laoreet. Sed nibh. Integer venenatis odio vitae neque. Quisque et mi ac libero blandit interdum. Suspendisse vitae massa. Suspendisse purus ligula, egestas in, ultrices non, fermentum at, lorem.</p>
+
+					<h2 style="padding: 0 36px 9px;">Links</h2>
+
+					<ul class="spacious">
+						<li style="margin: 18px;"><a href="/" style="font-weight: bold; background-color: transparent; color: #900;">Relative path to root</a></li>
+						<li style="margin: 18px;"><a href="http://code.dunae.ca/" style="font-weight: bold; background-color: transparent; color: #900;">Absolute path to root</a></li>
+						<li style="margin: 18px;"><a href="http://example.com/" style="font-weight: bold; background-color: transparent; color: #900;">Different domain</a></li>
+						<li style="margin: 18px;"><a href="images/" style="font-weight: bold; background-color: transparent; color: #900;">Relative path to sub-directory</a></li>
+						<li style="margin: 18px;"><a href="#relative" style="font-weight: bold; background-color: transparent; color: #900;">Link is not converted</a></li>
+						<li style="margin: 18px;"><a href="http://example.com/test.html?cn=tf&amp;c=20&amp;ord=%%RANDOM%%" style="font-weight: bold; background-color: transparent; color: #900;">Funky ASP URL</a></li>
+						<li style="margin: 18px;"><a href="?query=string" style="font-weight: bold; background-color: transparent; color: #900;">Appends tracking query string</a></li>
+						<li style="margin: 18px;"><a href="{DONOTCONVERT}" style="font-weight: bold; background-color: transparent; color: #900;">Link is not converted</a></li>
+						<li style="margin: 18px;"><a href="[DONOTCONVERT]" style="font-weight: bold; background-color: transparent; color: #900;">Link is not converted</a></li>
+						<li style="margin: 18px;"><a href="<DONOTCONVERT>" style="font-weight: bold; background-color: transparent; color: #900;">Link is not converted</a></li>
+					</ul>
+
+					<p style="padding: 0 36px 9px;">Vestibulum <strong>tristique adipiscing</strong> nisi. Suspendisse bibendum pretium justo. Vestibulum nec ante. Nulla mollis molestie nibh. Curabitur facilisis neque a risus. Curabitur aliquam gravida nisl. Sed consectetuer. Nullam interdum faucibus quam. Suspendisse pulvinar orci nec metus. Vivamus nonummy. Nam dignissim arcu a metus. Mauris leo. Nulla facilisi. Ut varius. Duis ultricies tristique magna. Vestibulum in lorem vitae diam pharetra vehicula. Suspendisse condimentum. Curabitur dictum magna eget tellus.</p>
+		<!-- MAIN CONTENT ENDS -->
+				</td>
+			</tr>
+		</table>
+
+		<table cellspacing="0" id="legal" cellpadding="0" width="720">
+			<tr>
+				<td class="left" height="120" valign="top" style="background: #1c2815 none; line-height: 18px; font-family: Georgia, Times, serif; color: #fff;" width="50%">
+					<p style="font-size: 11px; margin: 0 36px;">This e-mail was sent to <b>test@example.com</b><br />
+					<a href="#" style="background: #1c2815 none; text-decoration: underline; color: #fff;">Click here</a> to <i>instantly</i> unsubscribe.</p>
+				</td>
+				<td class="right" height="120" valign="top" style="background: #1c2815 none; line-height: 18px; font-family: Georgia, Times, serif; color: #fff; text-align: right;" width="50%">
+					<p style="font-size: 11px; margin: 0 36px;">Sent by <a href="http://example.com/" title="Test Co. web site" style="background: #1c2815 none; text-decoration: underline; color: #fff;">Test Co.</a><br />
+					Vancouver Island, BC, Canada</p>
+				</td>
+			</tr>
+		</table>
+
+	</td></tr></table><!-- / #frame -->
+</div><!-- / #container -->
+</body>
+</html>

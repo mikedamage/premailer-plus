@@ -1,10 +1,6 @@
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__), '../'))
 require 'rubygems'
 require 'test/unit'
-require 'shoulda'
+require 'lib/premailer'
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'premailer_plus'
 
-class Test::Unit::TestCase
-end

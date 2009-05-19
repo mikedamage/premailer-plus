@@ -1,0 +1,103 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'optparse/time'
+require 'ostruct'
+require 'fileutils'
+require File.dirname(__FILE__) + '/../lib/premailer'
+
+def exit_with_error(opts, msg = '')
+  puts msg + "\n\n" unless msg.empty?
+  puts opts
+  exit
+end
+
+
+options = OpenStruct.new
+options.plaintext = false
+options.outfile = ''
+options.querystring = ''
+options.warnings = false
+ 
+opts = OptionParser.new do |opts|
+  opts.banner = "Usage: premailer.rb inputfile outputfile [options]\n Examples:\n"
+  opts.banner << "  premailer myfile.html myfile -b http://example.com/\n"
+  opts.banner << "  premailer http://example.com/myfile.html out/myfile -w -q src=email"
+  opts.separator ""
+  opts.separator "Specific options:"
+
+  opts.on("-t", "--plaintext", "Create plain-text version") do |t|
+    options.plaintext = t
+  end
+
+  opts.on("-q", "--querystring [STRING]", "Query string to append to links") do |qs|
+    options.querystring = qs || ''
+    options.querystring.gsub!(/^\?/, '')
+  end
+
+  opts.on("-b", "--baseurl [STRING]", "Base URL; only applies to local files") do |bs|
+    options.baseurl = bs
+  end
+
+  opts.on("-w", "--warnings", "Generate CSS/HTML warnings") do |w|
+    options.warnings = w
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+
+opts.parse!(ARGV)
+
+src_url = ARGV[0]
+exit_with_error(opts, "You must specify a file to parse") if src_url.nil?
+
+outfile = ARGV[1]
+exit_with_error(opts, "You must specify an output file") if outfile.nil?
+
+outdir = File.dirname(outfile)
+
+unless File.exists?(outdir) and File.directory?(outdir)
+  FileUtils.mkdir_p outdir
+end
+
+
+puts "Parsing #{src_url}"
+puts " - plaintext: #{options.plaintext}"
+puts " - querystring: #{options.querystring}"
+
+
+unless src_url =~ /^(http|https|ftp)\:\/\//i
+  local_file = File.expand_path(File.dirname(__FILE__) + '/' + src_url)
+  raise "Could not find #{local_file}" unless File.exists?(local_file)
+end
+
+
+premailer = Premailer.new(src_url, :warn_level => Premailer::Warnings::SAFE, :link_query_string => options.querystring)
+
+
+
+
+fout = File.open("#{outfile}.html", "w")
+fout.puts premailer.to_inline_css
+fout.close
+
+puts "Succesfully parsed '#{src_url}' into '#{outfile}.html'"
+
+if options.plaintext
+  fout = File.open("#{outfile}.txt", "w")
+  fout.puts premailer.to_plain_text
+  fout.close
+  puts "Succesfully parsed '#{src_url}' into '#{outfile}.txt'"
+end
+
+
+if options.warnings
+  fwarn = File.open("#{outfile}.warnings.txt", "w")
+  premailer.warnings.each do |w|
+    fwarn.puts "#{w[:message]} (#{w[:level]})\n     May not render properly in #{w[:clients]}\n\n"
+  end
+  fwarn.close
+  puts "Saved #{premailer.warnings.length.to_s} CSS/HTML warnings to #{outfile}.warnings.txt"
+end
