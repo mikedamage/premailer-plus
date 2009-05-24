@@ -58,7 +58,7 @@ class Premailer
   # [+warn_level+] What level of CSS compatibility warnings to show (see Warnings).
   # [+link_query_string+] A string to append to every <a href=""> link.
   def initialize(uri, options = {})
-    @options = {:warn_level => Warnings::SAFE, :line_length => 65, :link_query_string => nil, :base_url => nil}.merge(options)
+    @options = {:warn_level => Warnings::SAFE, :line_length => 65, :link_query_string => nil, :base_url => nil, :shorten_urls => false}.merge(options)
     @html_file = uri
 
     
@@ -105,7 +105,11 @@ class Premailer
     rescue
       html_src = @doc.to_html
     end
-    convert_to_text(html_src, @options[:line_length], @html_charset)
+		if @options[:shorten_urls]
+    	convert_to_text(html_src, @options[:line_length], @html_charset, true)
+		else
+			convert_to_text(html_src, @options[:line_length], @html_charset, false)
+		end
   end
 
   # Merge CSS into the HTML document.

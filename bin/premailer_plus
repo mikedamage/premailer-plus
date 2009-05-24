@@ -5,5 +5,67 @@
 # Miscellaneous improvements to Alex Dunae's Premailer gem
 
 require "optparse"
-require "rubygems"
-require "lib/premailer"
+require "optparse/time"
+require "ostruct"
+require "pathname"
+require File.join(File.dirname(__FILE__), "../lib/premailer")
+
+class PremailerApp
+	@@config = OpenStruct.new({
+		:plaintext => false,
+		:shorten_urls => false,
+		:base_url => '',
+		:outfile => '',
+		:querystring => '',
+		:warnings => false
+	})
+	
+	def initialize(args)
+		@args = args
+	end
+	
+	def run
+		if parse_options and get_arguments
+			
+		else
+			puts "Invalid options/arguments!"
+			exit 1
+		end
+	end
+	
+	private
+	def parse_options
+		opts = OptionParser.new
+		opts.banner = DATA.read.gsub!(/FILE/, File.basename(__FILE__))
+		opts.on("-p", "--plaintext", "Output a plain-text version of the email in addition to HTML") { @@config.plaintext = true }
+		opts.on("-s", "--shorten-urls", "Shorten URLs with Bit.ly in the plain-text version") { @@config.shorten_urls = true }
+		opts.on("-b", "--baseurl URL", "Prepend this URL to links if your input is a local file.") {|url| @@config.base_url = url }
+		opts.on("-q", "--querystring STRING", "Append this query string to link URLs") {|string| @@config.querystring = string }
+		opts.on("-w", "--warnings", "Display CSS support warnings") { @@config.warnings = true }
+		opts.on("-h", "--help", "Show this information") { puts opts; exit 0; }
+		true if opts.parse!(@args) rescue return false
+	end
+	
+	def get_arguments
+		if @args.nitems >= 2
+			@input_file = @args.shift
+			@output_file = @args.shift
+			return true
+		else
+			return false
+		end
+	end
+end
+
+app = PremailerApp.new(ARGV)
+app.run
+
+__END__
+Premailer Plus
+-----------------
+
+Usage:
+	FILE [options] inputfile outputfile
+	"inputfile" can be either a local file or a URL
+	
+Options:
