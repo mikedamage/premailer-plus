@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+#
+# = Premailer Plus
+#
+# Miscellaneous improvements to Alex Dunae's Premailer gem
+
+require "optparse"
+require "rubygems"
+require "lib/premailer"
