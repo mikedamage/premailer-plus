@@ -11,22 +11,33 @@ require "pathname"
 require File.join(File.dirname(__FILE__), "../lib/premailer")
 
 class PremailerApp
-	@@config = OpenStruct.new({
-		:plaintext => false,
-		:shorten_urls => false,
-		:base_url => '',
-		:outfile => '',
-		:querystring => '',
-		:warnings => false
-	})
+	
 	
 	def initialize(args)
 		@args = args
+		@config = OpenStruct.new({
+			:plaintext => false,
+			:shorten_urls => false,
+			:base_url => '',
+			:infile => nil,
+			:outfile => '',
+			:querystring => '',
+			:warnings => false,
+			:verbose => true
+		})
 	end
 	
 	def run
 		if parse_options and get_arguments
+			@pm_opts = {}
+			@pm_opts.merge!({:base_url => @config.base_url}) unless @config.base_url.empty?
+			@pm_opts.merge!({:link_query_string => @config.querystring}) unless @config.querystring.empty?
+			@pm_opts.merge!({:shorten_urls => true}) if @config.shorten_urls
+			@premailer = Premailer.new(@config.infile.to_s, @pm_opts)
 			
+			write_premail_html
+			write_plain_text if @config.plaintext
+			show_warnings if @config.warnings
 		else
 			puts "Invalid options/arguments!"
 			exit 1
@@ -37,22 +48,48 @@ class PremailerApp
 	def parse_options
 		opts = OptionParser.new
 		opts.banner = DATA.read.gsub!(/FILE/, File.basename(__FILE__))
-		opts.on("-p", "--plaintext", "Output a plain-text version of the email in addition to HTML") { @@config.plaintext = true }
-		opts.on("-s", "--shorten-urls", "Shorten URLs with Bit.ly in the plain-text version") { @@config.shorten_urls = true }
-		opts.on("-b", "--baseurl URL", "Prepend this URL to links if your input is a local file.") {|url| @@config.base_url = url }
-		opts.on("-q", "--querystring STRING", "Append this query string to link URLs") {|string| @@config.querystring = string }
-		opts.on("-w", "--warnings", "Display CSS support warnings") { @@config.warnings = true }
+		opts.on("-p", "--plaintext", "Output a plain-text version of the email in addition to HTML") { @config.plaintext = true }
+		opts.on("-s", "--shorten-urls", "Shorten URLs with Bit.ly in the plain-text version") { @config.shorten_urls = true }
+		opts.on("-b", "--baseurl URL", "Prepend this URL to links if your input is a local file.") {|url| @config.base_url = url }
+		opts.on("-q", "--querystring STRING", "Append this query string to link URLs") {|string| @config.querystring = string }
+		opts.on("-v", "--verbose", "Display status information during the pre-mailing process") { @config.verbose = true }
+		opts.on("-w", "--warnings", "Display CSS support warnings") { @config.warnings = true }
 		opts.on("-h", "--help", "Show this information") { puts opts; exit 0; }
 		true if opts.parse!(@args) rescue return false
 	end
 	
 	def get_arguments
 		if @args.nitems >= 2
-			@input_file = @args.shift
-			@output_file = @args.shift
+			@config.infile = Pathname.new(@args.shift)
+			@config.outfile = Pathname.new(@args.shift)
 			return true
 		else
 			return false
+		end
+	end
+	
+	def write_premail_html
+		puts "Converting HTML to inline CSS and saving as #{@config.outfile.basename.to_s}..." if @config.verbose
+		@config.outfile.open("w") do |file|
+			file.write(@premailer.to_inline_css)
+		end
+		puts "Done." if @config.verbose
+	end
+	
+	def write_plain_text
+		textfile = Pathname.new(File.join(@config.outfile.dirname.to_s, @config.outfile.basename.to_s.gsub(/\..+$/, ".txt")))
+		puts "Saving a plain-text version of your email as #{@config.outfile.basename.to_s.gsub(/\.html$/, '.txt')}..." if @config.verbose
+		puts "Shortening link URLs with Bit.ly..." if @config.verbose and @config.shorten_urls
+		textfile.open("w") do |file|
+			file.write(@premailer.to_plain_text)
+		end
+		puts "Done." if @config.verbose
+	end
+	
+	def show_warnings
+		puts "#{@premailer.warnings.nitems.to_s} warnings found:"
+		@premailer.warnings.each do |warning|
+			puts warning
 		end
 	end
 end

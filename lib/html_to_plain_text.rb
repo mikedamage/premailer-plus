@@ -1,5 +1,6 @@
 require 'text/reform'
 require 'htmlentities'
+require 'bitly4r'
 
 # Support functions for Premailer
 module HtmlToPlainText
@@ -15,7 +16,7 @@ module HtmlToPlainText
 		
     txt = html
 		
-		bitly = shorten ? Bitly4R.keyed("mikedamage", "R_abb45e99634386334b7ed6c8d081e80e") : nil
+		bitly = shorten ? Bitly4R.Keyed("mikedamage", "R_abb45e99634386334b7ed6c8d081e80e") : nil
 		
     he = HTMLEntities.new                                 # decode HTML entities
 
