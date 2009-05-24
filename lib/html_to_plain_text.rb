@@ -40,7 +40,7 @@ module HtmlToPlainText
       $2 + ' [' + $1 + ']'
     end
 
-    txt.gsub!(/(<li[\s]+[^>]*>|<li>)/i, '  * ')                     # unordered LIsts
+    txt.gsub!(/(<li[\s]+[^>]*>|<li>)/i, '  * ')           # unordered LIsts
     txt.gsub!(/<\/p>/i, "\n\n")                           # paragraphs
     
     txt.gsub!(/<\/?[^>]*>/, '')                           # strip remaining tags

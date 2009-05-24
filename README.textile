@@ -1,0 +1,34 @@
+h1. premailer-plus
+
+|*By:*||Mike Green ("mike.is.green@gmail.com":mailto:mike.is.green@gmail.com)|
+|*Original Premailer By:*||Alex Dunae ("http://www.dunae.ca":http://www.dunae.ca)|
+
+h2. Background
+
+Premailer Plus is my set of additions and corrections to Alex Dunae's excellent "Premailer":http://code.dunae.ca/premailer.web/ application. Premailer is "Preflight for HTML email", i.e. it takes your HTML code, and makes it compatible with most email clients. Email clients aren't like web browsers; their support for CSS is spotty and erratic, and they don't always render your code the way you'd expect. Premailer takes your CSS and moves it inline to each matched HTML element, and it displays warnings if you use code that's not well supported by email clients. "Campaign Monitor":http://www.campaignmonitor.com sponsors and uses Premailer to get your code ready for mass emails. It's a one of a kind, indispensible service, but I've always had a few gripes about the Premailer Rubygem, so I finally decided to fork the code and apply my fixes and improvements.
+
+h3. Problems with "Premailer Classic"
+
+I downloaded the Premailer gem so that I could rock the excellence of Premailer on my Mac instead of having to rely on an external service. There's even a TextMate bundle available that lets you Premailer you code right in the editor. But when I downloaded it, I found one glaring problem: *When you run Premailer from the command line, it throws an error when you give it a local file instead of a URL.* Kind of defeats the purpose.
+
+h3. Improvements in Premailer Plus
+
+* I fixed the command line script so that it no longer throws errors when you feed it a local file
+* New option to shorten the URLs of links in your plain text version
+** "TinyURL":http://tinyurl.com
+** "Bit.ly":http://bit.ly
+* More to come!
+
+h2. Installation
+
+The easiest way to install Premailer Plus is to run the following code on your OS X or Linux terminal (should work on Windows too, but I'm not sure):
+
+<pre>
+	$ sudo gem install mikedamage-premailer-plus
+</pre>
+
+You can also clone this repository and run @sudo rake install@ from the project root.
+
+h2. Copyright
+
+Copyright (C) 2009 Mike Green. See LICENSE for details.
