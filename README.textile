@@ -15,7 +15,6 @@ h3. Improvements in Premailer Plus
 
 * I fixed the command line script so that it no longer throws errors when you feed it a local file
 * New option to shorten the URLs of links in your plain text version
-** "TinyURL":http://tinyurl.com
 ** "Bit.ly":http://bit.ly
 * More to come!
 
@@ -28,6 +27,14 @@ The easiest way to install Premailer Plus is to run the following code on your O
 </pre>
 
 You can also clone this repository and run @sudo rake install@ from the project root.
+
+h2. Dependencies
+
+* "RubyGems":http://rubygems.rubyforge.org
+* "Hpricot":http://wiki.github.com/why/hpricot
+* "css-parser":http://code.dunae.ca/css_parser/
+* "text-reform":http://rubyforge.org/projects/text-format/
+* "Bitly4r":http://wiki.cantremember.com/Bitly4R/HomePage
 
 h2. Copyright
 

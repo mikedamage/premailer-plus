@@ -8,13 +8,15 @@ module HtmlToPlainText
   #
   # TODO:
   #  - add support for DL, OL
-  def convert_to_text(html, line_length, from_charset = 'UTF-8')
+  def convert_to_text(html, line_length, from_charset = 'UTF-8', shorten = false)
     r = Text::Reform.new(:trim => true, 
                          :squeeze => false, 
                          :break => Text::Reform.break_wrap)
-
+		
     txt = html
-    
+		
+		bitly = shorten ? Bitly4R.keyed("mikedamage", "R_abb45e99634386334b7ed6c8d081e80e") : nil
+		
     he = HTMLEntities.new                                 # decode HTML entities
 
     txt = he.decode(txt)
@@ -37,7 +39,11 @@ module HtmlToPlainText
     end
 
     txt.gsub!(/<a.*href=\"([^\"]*)\"[^>]*>(.*)<\/a>/i) do |s|   # links
-      $2 + ' [' + $1 + ']'
+			if bitly
+				$2 + ' [' + bitly.shorten($1) + ']'
+			else
+				$2 + ' [' + $1 + ']'
+			end
     end
 
     txt.gsub!(/(<li[\s]+[^>]*>|<li>)/i, '  * ')           # unordered LIsts
