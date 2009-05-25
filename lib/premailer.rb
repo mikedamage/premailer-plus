@@ -180,7 +180,7 @@ protected
 		if @is_local_file
 			Hpricot(File.open(uri, "r") {|f| f.read })
 		else
-      Hpricot(open(uri))
+      Hpricot(open(uri).read)
 		end
   end
 
