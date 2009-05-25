@@ -11,7 +11,16 @@ require "pathname"
 require File.join(File.dirname(__FILE__), "../lib/premailer")
 
 class PremailerApp
-	
+	BANNER = <<-END
+Premailer Plus
+-----------------
+
+Usage:
+	FILE [options] inputfile outputfile
+	"inputfile" can be either a local file or a URL
+
+Options:
+END
 	
 	def initialize(args)
 		@args = args
@@ -47,7 +56,7 @@ class PremailerApp
 	private
 	def parse_options
 		opts = OptionParser.new
-		opts.banner = DATA.read.gsub!(/FILE/, File.basename(__FILE__))
+		opts.banner = BANNER.gsub!(/FILE/, File.basename(__FILE__))
 		opts.on("-p", "--plaintext", "Output a plain-text version of the email in addition to HTML") { @config.plaintext = true }
 		opts.on("-s", "--shorten-urls", "Shorten URLs with Bit.ly in the plain-text version") { @config.shorten_urls = true }
 		opts.on("-b", "--baseurl URL", "Prepend this URL to links if your input is a local file.") {|url| @config.base_url = url }
@@ -96,13 +105,3 @@ end
 
 app = PremailerApp.new(ARGV)
 app.run
-
-__END__
-Premailer Plus
------------------
-
-Usage:
-	FILE [options] inputfile outputfile
-	"inputfile" can be either a local file or a URL
-	
-Options:
