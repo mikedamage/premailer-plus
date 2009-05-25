@@ -28,7 +28,7 @@ The easiest way to install Premailer Plus is to run the following code on your O
 	$ sudo gem install mikedamage-premailer-plus
 </pre>
 
-You can also clone this repository and run @sudo rake install@ from the project root.
+You can also clone this repository and run @rake build@ from the project root. Then run @sudo gem install ./pkg/premailer-plus*.gem@
 
 h2. Dependencies
 
