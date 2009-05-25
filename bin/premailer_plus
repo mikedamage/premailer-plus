@@ -59,7 +59,7 @@ END
 		opts.banner = BANNER.gsub!(/FILE/, File.basename(__FILE__))
 		opts.on("-p", "--plaintext", "Output a plain-text version of the email in addition to HTML") { @config.plaintext = true }
 		opts.on("-s", "--shorten-urls", "Shorten URLs with Bit.ly in the plain-text version") { @config.shorten_urls = true }
-		opts.on("-b", "--baseurl URL", "Prepend this URL to links if your input is a local file.") {|url| @config.base_url = url }
+		opts.on("-b", "--baseurl URL", "Prepend this URL to links") {|url| @config.base_url = url }
 		opts.on("-q", "--querystring STRING", "Append this query string to link URLs") {|string| @config.querystring = string }
 		opts.on("-v", "--verbose", "Display status information during the pre-mailing process") { @config.verbose = true }
 		opts.on("-w", "--warnings", "Display CSS support warnings") { @config.warnings = true }
