@@ -1,7 +1,9 @@
 h1. premailer-plus
 
-|*By:*||Mike Green ("mike.is.green@gmail.com":mailto:mike.is.green@gmail.com)|
+|*Misc. improvements by:*||Mike Green ("mike.is.green@gmail.com":mailto:mike.is.green@gmail.com)|
 |*Original Premailer By:*||Alex Dunae ("http://www.dunae.ca":http://www.dunae.ca)|
+
+Check out the Premailer web application at http://code.dunae.ca/premailer.web
 
 h2. Background
 
@@ -38,4 +40,4 @@ h2. Dependencies
 
 h2. Copyright
 
-Copyright (C) 2009 Mike Green. See LICENSE for details.
+Since I only improved Premailer's handling of local files and gave it the ability to shorten URL's, the copyright to this code is still held by Alex Dunae. I am only modifying and redistributing his code in compliance with the terms of Premailer's license.
