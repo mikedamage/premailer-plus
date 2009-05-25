@@ -12,6 +12,7 @@ require 'yaml'
 require 'open-uri'
 require 'hpricot'
 require 'css_parser'
+require 'tempfile'
 
 require 'html_to_plain_text'
 
@@ -180,7 +181,11 @@ protected
 		if @is_local_file
 			Hpricot(File.open(uri, "r") {|f| f.read })
 		else
-      Hpricot(open(uri).read)
+			@temp_file = Tempfile.new("premailer_plus")
+			@temp_file.write(open(uri).read)
+			@temp_file.close
+			@is_local_file = true
+      Hpricot(@temp_file.open.read)
 		end
   end
 
