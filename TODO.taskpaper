@@ -1,0 +1,8 @@
+Plan for 1.0 Release:
+	Replace Dunae's code with my own:
+		Provide the following existing functionality:
+			- Premailer class
+				- Parse HTML with either Hpricot or Nokogiri
+				- Parse CSS
+				- Convert CSS to inline style attrs
+				- Provide client support info (probably stick with current YAML file with client support data)
