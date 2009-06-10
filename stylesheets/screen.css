@@ -32,11 +32,11 @@ p { margin: 0 0 1.5em; }
 p img.left { display: inline; float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
 p img.right { display: inline; float: right; margin: 1.5em 0 1.5em 1.5em; padding: 0; }
 
-a { text-decoration: underline; color: #000099; }
-a:visited { color: #000066; }
+a { text-decoration: underline; color: #677ccf; }
+a:visited { color: #34499c; }
 a:focus { color: black; }
 a:hover { color: black; }
-a:active { color: #cc0099; }
+a:active { color: #ff7ccf; }
 
 blockquote { margin: 1.5em; color: #666; font-style: italic; }
 
@@ -426,8 +426,15 @@ h1, h2, h3 { color: #e80046; font-weight: bold; }
 #gh_ribbon { position: absolute; top: 0; right: 0; display: block; width: 149px; height: 149px; text-indent: -9999px; background: url('../images/forkme.png') top right no-repeat; }
 
 .header { padding-top: 50px; }
-.header h1 { font-weight: bold; font-size: 48px; display: inline; float: left; margin-right: 10px; width: 950px; }
+.header h1 { font-weight: bold; font-size: 48px; text-indent: -9999px; height: 70px; width: 470px; background: url(../images/pre_plus_header.gif) top left no-repeat; color: #5c342a; position: relative; left: -10px; display: inline; float: left; margin-right: 10px; width: 950px; }
 * html .header h1 { overflow-x: hidden; }
 .header #downloads { display: inline; float: left; margin-right: 10px; width: 470px; margin-right: 0; }
 * html .header #downloads { overflow-x: hidden; }
-.header p.authors { text-align: left; padding-left: 2px; font-size: 14px; }
+.header p.authors { text-align: left; padding-left: 0px; font-size: 14px; }
+
+.body { display: inline; float: left; margin-right: 10px; width: 710px; }
+* html .body { overflow-x: hidden; }
+
+.sidebar { display: inline; float: left; margin-right: 10px; width: 230px; margin-right: 0; }
+* html .sidebar { overflow-x: hidden; }
+.sidebar #nav { font-size: 12px; }
