@@ -37,4 +37,14 @@ $(document).ready(function() {
 	
 	// Github Voice link
 	$("a.feedback").githubVoice('mikedamage', 'premailer-plus');
+	
+	// Add icons to all external links
+	$("a[href^='http://']").css({
+		background: "url(images/icons/application_add.png) top right no-repeat",
+		paddingRight: "20px",
+		height: "16px"
+	}).attr({
+		title: "Opens in a new window/tab",
+		target: "_blank"
+	});
 });

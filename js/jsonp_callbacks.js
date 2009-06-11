@@ -27,6 +27,6 @@ function twitterFeed(json) {
 		tmp = "<li>No Twitter posts yet.</li>";
 	}
 	
-	jQuery("#twitter_posts .loading").hide('fast');
-	jQuery("#twitter_posts ul").append(tmp);
+	jQuery("#developer_twitter .loading").hide('fast');
+	jQuery("#developer_twitter ul").append(tmp);
 }
