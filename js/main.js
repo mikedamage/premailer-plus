@@ -1,8 +1,19 @@
 $(document).ready(function() {
-	$("#github_voice a").githubVoice('mikedamage', 'premailer-plus', {
-		text: {
-			description: "We need your input so we can make Premailer Plus rock that much harder. Please use the forum to tell us about your ideas!",
-			loading: "Loading feedback ideas..."
-		}
-	})
+	
+	// Get recent Github activity
+	$.ajax({
+		type: "GET",
+		dataType: "jsonp",
+		url: "http://pipes.yahoo.com/mikedamage/premailerplus?run&_render=json&_callback=gitFeed",
+		jsonp: "gitFeed"
+	});
+	
+	// Get Twitter mentions
+	$.ajax({
+		type: "GET",
+		dataType: "jsonp",
+		url: "http://pipes.yahoo.com/mikedamage/pmplus_twitter?run&_render=json&_callback=twitterFeed",
+		jsonp: "twitterFeed"
+	});
+	
 });

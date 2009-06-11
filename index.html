@@ -7,7 +7,9 @@
 
 	<title>Premailer Plus // Preflight for HTML Email</title>
 	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.timeago.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/jquery.github-voice.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jsonp_callbacks.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 	
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -33,7 +35,12 @@
 		<div class="body">
 			<h2>About Premailer Plus</h2>
 			<a name="about"></a>
-			<p>Premailer Plus is my set of additions and corrections to Alex Dunae’s excellent Premailer application. Premailer is “Preflight for HTML email”, i.e. it takes your HTML code, and makes it compatible with most email clients. Email clients aren’t like web browsers; their support for CSS is spotty and erratic, and they don’t always render your code the way you’d expect. Premailer takes your CSS and moves it inline to each matched HTML element, and it displays warnings if you use code that’s not well supported by email clients. Campaign Monitor sponsors and uses Premailer to get your code ready for mass emails. It’s a one of a kind, indispensible service, but I’ve always had a few gripes about the Premailer Rubygem, so I finally decided to fork the code and apply my fixes and improvements.</p>
+			<p>
+				Premailer Plus is my set of additions and corrections to Alex Dunae’s excellent Premailer application. Premailer is <strong>&ldquo;Preflight for HTML email&rdquo;</strong>, i.e. it takes your HTML code, and makes it compatible with most email clients. Email clients aren’t like web browsers; their support for CSS is spotty and erratic, and they don’t always render your code the way you’d expect. Premailer takes your CSS and moves it inline to each matched HTML element, and it displays warnings if you use code that’s not well supported by email clients.
+			</p>
+			<p>
+				Campaign Monitor sponsors and uses Premailer to get your code ready for mass emails. It’s a one of a kind, indispensible service, but I’ve always had a few gripes about the Premailer Rubygem, so I finally decided to fork the code and apply my fixes and improvements.
+			</p>
 			<a href="#top">Back to Top</a>
 			
 			<h2>Installing</h2>
@@ -67,9 +74,28 @@
 				<li><a href="#download">Downloads</a></li>
 				<li><a href="#contrib">Contribute</a></li>
 				<li><a href="#license">License</a></li>
+				<li><a href="http://wiki.github.com/mikedamage/premailer-plus">Wiki</a></li>
 			</ul>
+			
 			<h2>Activity on Github</h2>
+			<div id="github_activity">
+				<p class="loading">
+					<img src="images/spinner.gif" alt="loading..." /> Loading...
+				</p>
+				<ul>
+					
+				</ul>
+			</div>
+			
 			<h2>Twitter Posts</h2>
+			<div id="twitter_posts">
+				<p class="loading">
+					<img src="images/spinner.gif" alt="loading..." /> Loading...
+				</p>
+				<ul>
+					
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
