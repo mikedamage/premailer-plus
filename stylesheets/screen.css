@@ -423,6 +423,9 @@ body { background: #e8e4b1; font-size: 13px; }
 
 h1, h2, h3 { color: #e80046; font-weight: bold; }
 
+pre { background: #5c342a; color: #e8e4b1; font-family: Monaco, "Courier New", Courier, monospace; font-size: 13px; }
+pre strong { color: #e80046; }
+
 #gh_ribbon { position: absolute; top: 0; right: 0; display: block; width: 149px; height: 149px; text-indent: -9999px; background: url('../images/forkme.png') top right no-repeat; }
 
 .header { padding-top: 50px; }
@@ -434,7 +437,11 @@ h1, h2, h3 { color: #e80046; font-weight: bold; }
 
 .body { display: inline; float: left; margin-right: 10px; width: 710px; }
 * html .body { overflow-x: hidden; }
+.body p { padding-right: 20px; }
 
 .sidebar { display: inline; float: left; margin-right: 10px; width: 230px; margin-right: 0; }
 * html .sidebar { overflow-x: hidden; }
+.sidebar ul { list-style-position: inside; }
 .sidebar #nav { font-size: 12px; }
+.sidebar #github_activity ul, .sidebar #twitter_posts ul { list-style: none; margin-right: 0; }
+.sidebar #github_activity ul li, .sidebar #twitter_posts ul li { border-bottom: #5c342a 1px dotted; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; }

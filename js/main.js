@@ -16,4 +16,7 @@ $(document).ready(function() {
 		jsonp: "twitterFeed"
 	});
 	
+	// LocalScroll Page Navigation
+	$.localScroll();
+	
 });
