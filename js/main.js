@@ -17,6 +17,6 @@ $(document).ready(function() {
 	});
 	
 	// LocalScroll Page Navigation
-	$.localScroll();
+	$.localScroll({ duration: 500 });
 	
 });

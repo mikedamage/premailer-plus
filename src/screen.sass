@@ -8,22 +8,32 @@
 // Or leave it in if you're happy with how blueprint looks out-of-the-box
 //+blueprint-scaffolding
 
+=code_example(!width)
+  :width= !width
+  :margin 10px auto
+  :padding 6px
+  :background #000
+  :color #fff
+  :font-family Monaco, "Courier New", Courier, monospace
+  :font-size 13px
+
 // Basics
 body
   :background= !bg_color
   :font-size 13px
 
-h1, h2, h3
+h1, h2
   :color= !loud_color
   :font-weight bold
+  :margin-top 20px
+  :margin-bottom 10px
+  :letter-spacing -1px
 
-pre
-  :background= !font_color
-  :color= !bg_color
-  :font-family Monaco, "Courier New", Courier, monospace
-  :font-size 13px
-  strong
-    :color= !loud_color
+h3
+  :margin-top 1em
+
+.code
+  +code_example(600px)
 
 // Page Structure
 #gh_ribbon
@@ -61,6 +71,9 @@ pre
   +column(18)
   p
     :padding-right 20px
+  
+  #license
+    :font-size 12px
     
 .sidebar
   +column(6)
