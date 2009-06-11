@@ -2,7 +2,7 @@
 
 // Sprockets requires:
 //= require "jquery"
-//= require "jquery.nospam.min"
+//= require "jquery.nospam"
 //= require "jquery.scrollTo"
 //= require "jquery.localscroll"
 //= require "jquery.timeago"
@@ -30,4 +30,8 @@ $(document).ready(function() {
 	// LocalScroll Page Navigation
 	$.localScroll({ duration: 500 });
 	
+	// De-obfuscate email addresses
+	$("a.email").nospam({
+		replaceText: true
+	});
 });
