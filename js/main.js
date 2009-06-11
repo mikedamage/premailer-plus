@@ -1,3 +1,14 @@
+// Premailer Plus: Main Javascript Biz Logic File
+
+// Sprockets requires:
+//= require "jquery"
+//= require "jquery.nospam.min"
+//= require "jquery.scrollTo"
+//= require "jquery.localscroll"
+//= require "jquery.timeago"
+//= require "jquery.github-voice"
+//= require "jsonp_callbacks"
+
 $(document).ready(function() {
 	
 	// Get recent Github activity

@@ -447,3 +447,6 @@ h3 { margin-top: 1em; }
 .sidebar #nav { font-size: 12px; }
 .sidebar #github_activity ul, .sidebar #twitter_posts ul { list-style: none; margin-right: 0; }
 .sidebar #github_activity ul li, .sidebar #twitter_posts ul li { border-bottom: #5c342a 1px dotted; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; }
+
+.footer { display: inline; float: left; margin-right: 10px; width: 950px; border-top: #5c342a 1px dotted; }
+* html .footer { overflow-x: hidden; }
