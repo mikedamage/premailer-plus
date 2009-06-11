@@ -440,7 +440,7 @@ textarea { width: 390px; height: 250px; padding: 5px; }
 
 body { background: #e8e4b1; font-size: 13px; }
 
-h1, h2 { color: #e80046; font-weight: bold; margin-top: 20px; margin-bottom: 10px; letter-spacing: -1px; text-shadow: #8f675d 1px 1px 2px; }
+h1, h2 { color: #e80046; font-weight: bold; margin-top: 20px; margin-bottom: 10px; letter-spacing: -1px; text-shadow: #8f675d 1px 1px 1px; }
 
 h3 { margin-top: 1em; }
 
@@ -461,9 +461,12 @@ h3 { margin-top: 1em; }
 .sidebar { display: inline; float: left; margin-right: 10px; width: 230px; margin-right: 0; }
 * html .sidebar { overflow-x: hidden; }
 .sidebar ul { list-style-position: inside; }
-.sidebar #nav { font-size: 13px; }
-.sidebar #github_activity ul, .sidebar #twitter_posts ul { list-style: none; margin-right: 0; }
-.sidebar #github_activity ul li, .sidebar #twitter_posts ul li { border-bottom: #5c342a 1px dotted; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; }
+.sidebar #nav { font-size: 14px; }
+.sidebar #nav li { list-style-type: none; margin-left: 0px; }
+.sidebar #nav li { background: url(../images/icons/bullet_go.png) center left no-repeat; padding-left: 20px; }
+.sidebar #github_activity ul, .sidebar #developer_twitter ul, .sidebar #everyone_twitter ul { margin-right: 0; }
+.sidebar #github_activity ul li, .sidebar #developer_twitter ul li, .sidebar #everyone_twitter ul li { list-style-type: none; margin-left: 0px; }
+.sidebar #github_activity ul li, .sidebar #developer_twitter ul li, .sidebar #everyone_twitter ul li { border-bottom: #5c342a 1px dotted; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; }
 
 .footer { display: inline; float: left; margin-right: 10px; width: 950px; border-top: #5c342a 1px dotted; }
 * html .footer { overflow-x: hidden; }

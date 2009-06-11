@@ -16,12 +16,12 @@ function gitFeed(json) {
 	jQuery("#github_activity ul").append(tmp);
 }
 
-function twitterFeed(json) {
+function developerFeed(json) {
 	var tmp = '';
 	var feed = json.value.items;
 	if (feed.length > 0) {
 		for (i=0; i < 3; i++) {
-			tmp += "<li>\n" + feed[i].title + "<br/>\n<em>" + jQuery.timeago(feed[i].pubDate) + "</em>\n</li>\n\n";
+			tmp += "<li>\n<strong>" + feed[i].user.screen_name + "</strong>" + feed[i].title + "<br/>\n<em>" + jQuery.timeago(feed[i].pubDate) + "</em>\n</li>\n\n";
 		}
 	} else {
 		tmp = "<li>No Twitter posts yet.</li>";
@@ -29,4 +29,19 @@ function twitterFeed(json) {
 	
 	jQuery("#developer_twitter .loading").hide('fast');
 	jQuery("#developer_twitter ul").append(tmp);
+}
+
+function twitterFeed(json) {
+	var tmp = '';
+	var feed = json.value.items;
+	if (feed.length > 0) {
+		for (i=0; i < 3; i++) {
+			tmp += "<li>\n<strong>" + feed[i].user.screen_name + "</strong>" + feed[i].title + "<br/>\n<em>" + jQuery.timeago(feed[i].pubDate) + "</em>\n</li>\n\n";
+		}
+	} else {
+		tmp = "<li>No Twitter posts yet.</li>";
+	}
+	
+	jQuery("#everyone_twitter .loading").hide('fast');
+	jQuery("#everyone_twitter ul").append(tmp);
 }

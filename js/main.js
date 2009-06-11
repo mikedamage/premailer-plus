@@ -19,11 +19,19 @@ $(document).ready(function() {
 		jsonp: "gitFeed"
 	});
 	
-	// Get Twitter mentions
+	// Get Developer Twitter mentions
 	$.ajax({
 		type: "GET",
 		dataType: "jsonp",
-		url: "http://pipes.yahoo.com/mikedamage/pmplus_twitter?run&_render=json&_callback=twitterFeed",
+		url: "http://pipes.yahoo.com/mikedamage/pmplus_twitter?run&_render=json&_callback=developerFeed",
+		jsonp: "developerFeed"
+	});
+	
+	// Get Everyone Else's Twitter Mentions
+	$.ajax({
+		type: "GET",
+		dataType: "jsonp",
+		url: "http://pipes.yahoo.com/mikedamage/twitter_public?run&filterstring=premailer-plus&_render=json&_callback=twitterFeed",
 		jsonp: "twitterFeed"
 	});
 	
@@ -46,5 +54,12 @@ $(document).ready(function() {
 	}).attr({
 		title: "Opens in a new window/tab",
 		target: "_blank"
+	});
+	
+	// Navigation List Animation
+	$("#nav li").hover(function() {
+		$(this).animate({paddingLeft: "30px"}, 300);
+	}, function() {
+		$(this).animate({paddingLeft: "20px"}, 300);
 	});
 });
