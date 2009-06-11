@@ -34,4 +34,7 @@ $(document).ready(function() {
 	$("a.email").nospam({
 		replaceText: true
 	});
+	
+	// Github Voice link
+	$("a.feedback").githubVoice('mikedamage', 'premailer-plus');
 });
