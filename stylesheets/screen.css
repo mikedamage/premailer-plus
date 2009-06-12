@@ -460,7 +460,7 @@ h3 { margin-top: 1em; }
 .body #downloads { overflow: visible; }
 .body #downloads li { list-style-type: none; margin-left: 0px; }
 .body #downloads li { float: left; position: relative; padding-right: 60px; }
-.body #downloads li div.tooltip { display: none; position: absolute; top: 100px; left: -33px; padding: 20px; text-align: center; width: 172px; height: 101px; background: url(../images/tooltip.png) top center no-repeat; color: #fff; }
+.body #downloads li div.tooltip { display: none; position: absolute; top: 130px; left: -33px; padding: 20px; text-align: center; width: 172px; height: 101px; background: url(../images/tooltip.png) top center no-repeat; color: #fff; }
 .body #license { font-size: 12px; }
 
 .sidebar { display: inline; float: left; margin-right: 10px; width: 230px; margin-right: 0; }
