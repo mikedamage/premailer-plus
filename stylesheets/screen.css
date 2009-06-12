@@ -444,7 +444,7 @@ h1, h2 { color: #e80046; font-weight: bold; margin-top: 20px; margin-bottom: 10p
 
 h3 { margin-top: 1em; }
 
-.code { width: 600px; margin: 10px auto; padding: 6px; background: #000; color: #fff; font-family: Monaco, "Courier New", Courier, monospace; font-size: 13px; }
+.code { width: 600px; margin: 10px auto; padding: 6px; background: #000; color: #fff; font-family: Monaco, "Courier New", Courier, monospace; font-size: 13px; -moz-border-radius: 8px; -webkit-border-radius: 8px; }
 
 #gh_ribbon { position: absolute; top: 0; right: 0; display: block; width: 149px; height: 149px; text-indent: -9999px; background: url('../images/forkme.png') top right no-repeat; }
 
@@ -455,12 +455,16 @@ h3 { margin-top: 1em; }
 
 .body { display: inline; float: left; margin-right: 10px; width: 710px; }
 * html .body { overflow-x: hidden; }
-.body p { padding-right: 20px; }
+.body p { padding-right: 20px; line-height: 22px; text-align: justify; }
+.body p.toplink { text-align: right; }
+.body #downloads { overflow: visible; }
+.body #downloads li { list-style-type: none; margin-left: 0px; }
+.body #downloads li { float: left; position: relative; padding-right: 60px; }
+.body #downloads li div.tooltip { display: none; position: absolute; top: 100px; left: -33px; padding: 20px; text-align: center; width: 172px; height: 101px; background: url(../images/tooltip.png) top center no-repeat; color: #fff; }
 .body #license { font-size: 12px; }
 
 .sidebar { display: inline; float: left; margin-right: 10px; width: 230px; margin-right: 0; }
 * html .sidebar { overflow-x: hidden; }
-.sidebar ul { list-style-position: inside; }
 .sidebar #nav { font-size: 14px; }
 .sidebar #nav li { list-style-type: none; margin-left: 0px; }
 .sidebar #nav li { background: url(../images/icons/bullet_go.png) center left no-repeat; padding-left: 20px; }

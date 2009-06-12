@@ -47,7 +47,7 @@ $(document).ready(function() {
 	$("a.feedback").githubVoice('mikedamage', 'premailer-plus');
 	
 	// Add icons to all external links
-	$("a[href^='http://']").css({
+	$("a[href^='http://']:not(.download)").css({
 		background: "url(images/icons/application_add.png) top right no-repeat",
 		paddingRight: "20px",
 		height: "16px"
@@ -57,9 +57,16 @@ $(document).ready(function() {
 	});
 	
 	// Navigation List Animation
-	$("#nav li").hover(function() {
+	/*$("#nav li").hover(function() {
 		$(this).animate({paddingLeft: "30px"}, 300);
 	}, function() {
 		$(this).animate({paddingLeft: "20px"}, 300);
+	});*/
+	
+	// Download Tooltips
+	$("#downloads li").hover(function() {
+		$(this).find("div.tooltip").fadeIn(300);
+	}, function() {
+		$(this).find("div.tooltip").fadeOut(300);
 	});
 });

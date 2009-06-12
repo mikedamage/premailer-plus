@@ -10,14 +10,6 @@
 // Or leave it in if you're happy with how blueprint looks out-of-the-box
 //+blueprint-scaffolding
 
-=code_example(!width)
-  :width= !width
-  :margin 10px auto
-  :padding 6px
-  :background #000
-  :color #fff
-  :font-family Monaco, "Courier New", Courier, monospace
-  :font-size 13px
 
 // Basics
 body
@@ -40,9 +32,7 @@ h3
 
 // Page Structure
 #gh_ribbon
-  :position absolute
-  :top 0
-  :right 0
+  +abs_pos_tr(0, 0)
   :display block
   :width 149px
   :height 149px
@@ -71,15 +61,36 @@ h3
   +column(18)
   p
     :padding-right 20px
-  
+    :line-height 22px
+    :text-align justify
+    &.toplink
+      :text-align right
+  #downloads
+    +no-bullets
+    :overflow visible
+    li
+      :float left
+      :position relative
+      :padding-right 60px
+      div.tooltip
+        :display none
+        :position absolute
+        :top 100px
+        :left -33px
+        :padding 20px
+        :text-align center
+        :width 172px
+        :height 101px
+        :background url(../images/tooltip.png) top center no-repeat
+        :color #fff
+
   #license
     :font-size 12px
     
 .sidebar
   +column(6)
   +last
-  ul
-    :list-style-position inside
+  
   #nav
     :font-size 14px
     +no-bullets
